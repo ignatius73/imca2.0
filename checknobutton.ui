@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>432</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QCheckBox" name="cBPapa">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>30</y>
+     <width>85</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Papa</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="cBBata">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>50</y>
+     <width>85</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Batata</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="cBCebo">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>70</y>
+     <width>85</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cebolla</string>
+   </property>
+  </widget>
+  <widget class="QCheckBox" name="cBZapa">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>90</y>
+     <width>85</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Zapallo</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnTotal">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>140</x>
+     <y>290</y>
+     <width>201</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>300</y>
+     <width>59</width>
+     <height>14</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Total</string>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>cBPapa</tabstop>
+  <tabstop>cBBata</tabstop>
+  <tabstop>cBCebo</tabstop>
+  <tabstop>cBZapa</tabstop>
+  <tabstop>lnTotal</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

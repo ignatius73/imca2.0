@@ -1,0 +1,7 @@
+﻿INSERT INTO imca.carreras (id_carrera,nombre) VALUES 
+(1,'FOBA')
+,(2,'TECNICATURA')
+,(3,'LICENCIATURA EN ARTES VISUALES')
+,(4,'CURSOS EXTRAPROGRAMATICOS')
+,(5,'AMBAS')
+;

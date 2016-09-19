@@ -1,0 +1,1418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Form</class>
+ <widget class="QWidget" name="Form">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1247</width>
+    <height>927</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>39</x>
+     <y>14</y>
+     <width>46</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Carrera</string>
+   </property>
+   <property name="buddy">
+    <cstring>cBCarrera</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>1067</x>
+     <y>14</y>
+     <width>24</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Año</string>
+   </property>
+   <property name="buddy">
+    <cstring>lnCiclo</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnCiclo">
+   <property name="geometry">
+    <rect>
+     <x>1097</x>
+     <y>22</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cBCarrera">
+   <property name="geometry">
+    <rect>
+     <x>91</x>
+     <y>22</y>
+     <width>79</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <item>
+    <property name="text">
+     <string>FOBA</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Tecnicatura</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Profesorado de Artes Plásticas</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Cursos Extraprogramáticos</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>80</y>
+     <width>246</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Datos Personales del alumno&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>112</y>
+     <width>117</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Apellido y Nombres</string>
+   </property>
+   <property name="buddy">
+    <cstring>lnNombre</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>289</x>
+     <y>112</y>
+     <width>30</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Sexo</string>
+   </property>
+   <property name="buddy">
+    <cstring>cBSexo</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>419</x>
+     <y>112</y>
+     <width>31</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Edad</string>
+   </property>
+   <property name="buddy">
+    <cstring>lnEdad</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>161</y>
+     <width>106</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Documento único</string>
+   </property>
+   <property name="buddy">
+    <cstring>lnDni</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>321</x>
+     <y>161</y>
+     <width>127</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Fecha de Nacimiento</string>
+   </property>
+   <property name="buddy">
+    <cstring>dENac</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_9">
+   <property name="geometry">
+    <rect>
+     <x>604</x>
+     <y>161</y>
+     <width>125</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Lugar de Nacimiento</string>
+   </property>
+   <property name="buddy">
+    <cstring>lnLugar</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_10">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>210</y>
+     <width>69</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Estado civil</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_11">
+   <property name="geometry">
+    <rect>
+     <x>238</x>
+     <y>210</y>
+     <width>30</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Hijos</string>
+   </property>
+   <property name="buddy">
+    <cstring>cBHijos</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_12">
+   <property name="geometry">
+    <rect>
+     <x>368</x>
+     <y>210</y>
+     <width>113</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Familiares a Cargo</string>
+   </property>
+   <property name="buddy">
+    <cstring>lnFamiliar</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_13">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>259</y>
+     <width>98</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Domicilio - Calle</string>
+   </property>
+   <property name="buddy">
+    <cstring>lnCalle</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_14">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>259</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>N°</string>
+   </property>
+   <property name="buddy">
+    <cstring>lnNum</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_15">
+   <property name="geometry">
+    <rect>
+     <x>422</x>
+     <y>259</y>
+     <width>25</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Piso</string>
+   </property>
+   <property name="buddy">
+    <cstring>lnPiso</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_16">
+   <property name="geometry">
+    <rect>
+     <x>584</x>
+     <y>259</y>
+     <width>37</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Depto</string>
+   </property>
+   <property name="buddy">
+    <cstring>lnDepto</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_17">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>309</y>
+     <width>98</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Localidad/Barrio</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_12</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_18">
+   <property name="geometry">
+    <rect>
+     <x>313</x>
+     <y>309</y>
+     <width>43</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Partido</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_11</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_19">
+   <property name="geometry">
+    <rect>
+     <x>536</x>
+     <y>309</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>CP</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_15</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_20">
+   <property name="geometry">
+    <rect>
+     <x>35</x>
+     <y>358</y>
+     <width>52</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Teléfono</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_14</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_21">
+   <property name="geometry">
+    <rect>
+     <x>224</x>
+     <y>358</y>
+     <width>32</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Móvil</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_16</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_22">
+   <property name="geometry">
+    <rect>
+     <x>393</x>
+     <y>358</y>
+     <width>111</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Correo Electrónico</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_17</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnNombre">
+   <property name="geometry">
+    <rect>
+     <x>158</x>
+     <y>112</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnPiso">
+   <property name="geometry">
+    <rect>
+     <x>453</x>
+     <y>259</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnDepto">
+   <property name="geometry">
+    <rect>
+     <x>627</x>
+     <y>259</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnEdad">
+   <property name="geometry">
+    <rect>
+     <x>546</x>
+     <y>112</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>125</width>
+     <height>0</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnNum">
+   <property name="geometry">
+    <rect>
+     <x>291</x>
+     <y>259</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnDni">
+   <property name="geometry">
+    <rect>
+     <x>147</x>
+     <y>161</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnCalle">
+   <property name="geometry">
+    <rect>
+     <x>139</x>
+     <y>259</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_11">
+   <property name="geometry">
+    <rect>
+     <x>362</x>
+     <y>309</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_12">
+   <property name="geometry">
+    <rect>
+     <x>139</x>
+     <y>309</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_14">
+   <property name="geometry">
+    <rect>
+     <x>93</x>
+     <y>358</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_15">
+   <property name="geometry">
+    <rect>
+     <x>558</x>
+     <y>309</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cBSexo">
+   <property name="geometry">
+    <rect>
+     <x>325</x>
+     <y>112</y>
+     <width>88</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <item>
+    <property name="text">
+     <string>Femenino</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Masculino</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QDateEdit" name="dENac">
+   <property name="geometry">
+    <rect>
+     <x>454</x>
+     <y>161</y>
+     <width>101</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhPreferNumbers</set>
+   </property>
+   <property name="wrapping">
+    <bool>true</bool>
+   </property>
+   <property name="accelerated">
+    <bool>true</bool>
+   </property>
+   <property name="displayFormat">
+    <string>dd/MM/yyyy</string>
+   </property>
+   <property name="calendarPopup">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lnLugar">
+   <property name="geometry">
+    <rect>
+     <x>735</x>
+     <y>161</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cBHijos">
+   <property name="geometry">
+    <rect>
+     <x>274</x>
+     <y>210</y>
+     <width>45</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>No</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>1</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>2</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>3</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>4</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>5</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>6</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>7</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>8</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>9</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>10</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="QLineEdit" name="lnFamiliar">
+   <property name="geometry">
+    <rect>
+     <x>487</x>
+     <y>210</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_16">
+   <property name="geometry">
+    <rect>
+     <x>262</x>
+     <y>358</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_17">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>358</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+     <horstretch>100</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_24">
+   <property name="geometry">
+    <rect>
+     <x>32</x>
+     <y>432</y>
+     <width>197</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Título nivel medio o polimodal&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="buddy">
+    <cstring>lntitulo</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_25">
+   <property name="geometry">
+    <rect>
+     <x>262</x>
+     <y>485</y>
+     <width>44</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Distrito</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_21</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_26">
+   <property name="geometry">
+    <rect>
+     <x>366</x>
+     <y>432</y>
+     <width>95</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Año de Egreso&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_27">
+   <property name="geometry">
+    <rect>
+     <x>32</x>
+     <y>485</y>
+     <width>47</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Escuela</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_20</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_28">
+   <property name="geometry">
+    <rect>
+     <x>32</x>
+     <y>538</y>
+     <width>88</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Otros Estudios</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_22</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lntitulo">
+   <property name="geometry">
+    <rect>
+     <x>235</x>
+     <y>432</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_20">
+   <property name="geometry">
+    <rect>
+     <x>85</x>
+     <y>485</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_21">
+   <property name="geometry">
+    <rect>
+     <x>312</x>
+     <y>485</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_22">
+   <property name="geometry">
+    <rect>
+     <x>126</x>
+     <y>538</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_29">
+   <property name="geometry">
+    <rect>
+     <x>32</x>
+     <y>591</y>
+     <width>63</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Institución</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_23</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_30">
+   <property name="geometry">
+    <rect>
+     <x>32</x>
+     <y>644</y>
+     <width>63</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Institución</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_25</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_31">
+   <property name="geometry">
+    <rect>
+     <x>232</x>
+     <y>591</y>
+     <width>87</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Año de Egreso</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_24</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_32">
+   <property name="geometry">
+    <rect>
+     <x>232</x>
+     <y>644</y>
+     <width>87</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Año de Egreso</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_26</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_23">
+   <property name="geometry">
+    <rect>
+     <x>101</x>
+     <y>591</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_24">
+   <property name="geometry">
+    <rect>
+     <x>325</x>
+     <y>591</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_25">
+   <property name="geometry">
+    <rect>
+     <x>101</x>
+     <y>644</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_26">
+   <property name="geometry">
+    <rect>
+     <x>325</x>
+     <y>644</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>-20</x>
+     <y>60</y>
+     <width>1281</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_33">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>410</y>
+     <width>246</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Estudios Cursados&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_34">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>700</y>
+     <width>141</width>
+     <height>18</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt; font-weight:600;&quot;&gt;Datos Laborales&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>730</y>
+     <width>121</width>
+     <height>69</height>
+    </rect>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <property name="title">
+    <string>Trabaja</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+   <widget class="QRadioButton" name="radioButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>31</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sí</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="radioButton_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>30</y>
+      <width>41</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>No</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label_23">
+   <property name="geometry">
+    <rect>
+     <x>191</x>
+     <y>731</y>
+     <width>56</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Actividad</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_29</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_35">
+   <property name="geometry">
+    <rect>
+     <x>384</x>
+     <y>731</y>
+     <width>99</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Horario Habitual</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_30</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_36">
+   <property name="geometry">
+    <rect>
+     <x>191</x>
+     <y>769</y>
+     <width>69</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Obra Social</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_27</cstring>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_37">
+   <property name="geometry">
+    <rect>
+     <x>397</x>
+     <y>769</y>
+     <width>153</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Teléfono de Emergencias</string>
+   </property>
+   <property name="buddy">
+    <cstring>lineEdit_28</cstring>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_27">
+   <property name="geometry">
+    <rect>
+     <x>266</x>
+     <y>769</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_28">
+   <property name="geometry">
+    <rect>
+     <x>556</x>
+     <y>769</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_29">
+   <property name="geometry">
+    <rect>
+     <x>253</x>
+     <y>731</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_30">
+   <property name="geometry">
+    <rect>
+     <x>489</x>
+     <y>731</y>
+     <width>125</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>16777215</width>
+     <height>16777215</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>820</y>
+     <width>1181</width>
+     <height>64</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Documentación Presentada</string>
+   </property>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>30</y>
+      <width>109</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Fotocpoia DNI</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_2">
+    <property name="geometry">
+     <rect>
+      <x>235</x>
+      <y>30</y>
+      <width>255</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Fotocopia Título Secundario/Polimodal</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_3">
+    <property name="geometry">
+     <rect>
+      <x>604</x>
+      <y>30</y>
+      <width>142</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Número de registro</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_6">
+    <property name="geometry">
+     <rect>
+      <x>860</x>
+      <y>30</y>
+      <width>58</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Fotos</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_5">
+    <property name="geometry">
+     <rect>
+      <x>1032</x>
+      <y>30</y>
+      <width>137</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Certificado Médico</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>979</x>
+     <y>900</y>
+     <width>101</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Siguiente &gt;&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>1100</x>
+     <y>900</y>
+     <width>101</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Limpiar</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="cBCivil">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>210</y>
+     <width>79</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <item>
+    <property name="text">
+     <string>Solterx</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Casadx</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>Divorciadx</string>
+    </property>
+   </item>
+   <item>
+    <property name="text">
+     <string>En Convivencia</string>
+    </property>
+   </item>
+  </widget>
+  <widget class="Line" name="line_2">
+   <property name="geometry">
+    <rect>
+     <x>33</x>
+     <y>32</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QSlider" name="hSEdad">
+   <property name="geometry">
+    <rect>
+     <x>456</x>
+     <y>115</y>
+     <width>84</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="value">
+    <number>50</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="tickPosition">
+    <enum>QSlider::NoTicks</enum>
+   </property>
+   <property name="tickInterval">
+    <number>5</number>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="dateEdit_2">
+   <property name="geometry">
+    <rect>
+     <x>467</x>
+     <y>432</y>
+     <width>62</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="currentSection">
+    <enum>QDateTimeEdit::YearSection</enum>
+   </property>
+   <property name="displayFormat">
+    <string>yyyy</string>
+   </property>
+   <property name="calendarPopup">
+    <bool>false</bool>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>cBCarrera</tabstop>
+  <tabstop>lnCiclo</tabstop>
+  <tabstop>cBSexo</tabstop>
+  <tabstop>lnDepto</tabstop>
+  <tabstop>lnNum</tabstop>
+  <tabstop>lnDni</tabstop>
+  <tabstop>lnCalle</tabstop>
+  <tabstop>lnNombre</tabstop>
+  <tabstop>lineEdit_11</tabstop>
+  <tabstop>lineEdit_12</tabstop>
+  <tabstop>lineEdit_14</tabstop>
+  <tabstop>lineEdit_15</tabstop>
+  <tabstop>lnPiso</tabstop>
+  <tabstop>dENac</tabstop>
+  <tabstop>lnLugar</tabstop>
+  <tabstop>cBHijos</tabstop>
+  <tabstop>lnFamiliar</tabstop>
+  <tabstop>lineEdit_16</tabstop>
+  <tabstop>lineEdit_17</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

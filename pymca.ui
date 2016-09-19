@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu_Alumnos">
+    <property name="title">
+     <string>&amp;Alumnos</string>
+    </property>
+    <addaction name="action_Nuevo_Alumno"/>
+    <addaction name="action_Modificar_Alumno"/>
+    <addaction name="action_Listar_Alumno"/>
+    <addaction name="action_Borrar_Alumno"/>
+    <addaction name="actionInscri_pciones"/>
+   </widget>
+   <widget class="QMenu" name="menuCooperadora">
+    <property name="title">
+     <string>&amp;Cooperadora</string>
+    </property>
+    <addaction name="actionIngresos"/>
+    <addaction name="actionEgresos"/>
+    <addaction name="actionLibro_Diario"/>
+    <addaction name="actionCaja"/>
+   </widget>
+   <widget class="QMenu" name="menu_Estad_sticas">
+    <property name="title">
+     <string>&amp;Estadísticas</string>
+    </property>
+   </widget>
+   <addaction name="menu_Alumnos"/>
+   <addaction name="menuCooperadora"/>
+   <addaction name="menu_Estad_sticas"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_Nuevo_Alumno">
+   <property name="text">
+    <string>&amp;Nuevo Alumno</string>
+   </property>
+  </action>
+  <action name="action_Modificar_Alumno">
+   <property name="text">
+    <string>&amp;Modificar Alumno</string>
+   </property>
+  </action>
+  <action name="action_Listar_Alumno">
+   <property name="text">
+    <string>&amp;Listar Alumno</string>
+   </property>
+  </action>
+  <action name="action_Borrar_Alumno">
+   <property name="text">
+    <string>&amp;Borrar Alumno</string>
+   </property>
+  </action>
+  <action name="actionC_obrar">
+   <property name="text">
+    <string>C&amp;obrar</string>
+   </property>
+  </action>
+  <action name="actionListado_Deudores">
+   <property name="text">
+    <string>Listado &amp;Deudores</string>
+   </property>
+  </action>
+  <action name="action_Balance">
+   <property name="text">
+    <string>&amp;Balance</string>
+   </property>
+  </action>
+  <action name="actionAgregar_Gasto">
+   <property name="text">
+    <string>Agregar &amp;Gasto</string>
+   </property>
+  </action>
+  <action name="actionIngresos">
+   <property name="text">
+    <string>&amp;Ingresos</string>
+   </property>
+  </action>
+  <action name="actionEgresos">
+   <property name="text">
+    <string>&amp;Egresos</string>
+   </property>
+  </action>
+  <action name="actionLibro_Diario">
+   <property name="text">
+    <string>Libro &amp;Diario</string>
+   </property>
+  </action>
+  <action name="actionCaja">
+   <property name="text">
+    <string>Ca&amp;ja</string>
+   </property>
+  </action>
+  <action name="actionInscri_pciones">
+   <property name="text">
+    <string>Inscri&amp;pciones</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
