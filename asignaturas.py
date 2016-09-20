@@ -24,10 +24,17 @@ class Asignaturas(QtGui.QWidget):
             '''Proceso FOBA'''
             ctrl = 1
             layFoba = self.ListoFOBA(ctrl)
-
+            print(type(layFoba))
+            print("Zaraza " + layFoba)
+            if layFoba is True:
+                self.anotoProfTec()
+            elif layFoba is False:
+                print("No tienes materias disponibles para la inscripción")
+            else:
+                self.lista.append(layFoba)
+                print("layFoba no es True ni False")
             layCursos = self.ListoCursos()
-
-            self.lista = [layFoba, layCursos]
+            self.lista.append(layCursos)
 
         else:
 
@@ -77,12 +84,19 @@ class Asignaturas(QtGui.QWidget):
     def ListoFOBA(self, control=0):
         print(control)
         q = self.MateriasFoba(control)
+        print(type(q))
+        if q is True:
+            print("FOBA TERMINADO")
+            return True
+        elif isinstance(q, str):
+            print(q)
+            return False
         if isinstance(q, list):
             gl = self.CreoGridLista(q, "Materias FOBA")
-        else:
+        elif isinstance(q, QtSql.QSqlQuery):
             gl = self.CreoGrid(q, "Materias FOBA")
-        gl.setObjectName("GFoba")
-        print("paso por aca")
+            gl.setObjectName("GFoba")
+            print("paso por aca")
         return gl
 
     def ListoCursos(self):
@@ -158,6 +172,7 @@ class Asignaturas(QtGui.QWidget):
     # Proceso toda la información FOBA, devuelvo una Lista con las materias
     # disponibles de FOBA para anotar al alumno
     def FOBA(self):
+        print("Entro a FOBA")
         '''Obtengo el total de materias FOBA'''
         sql = "SELECT * from asignaturas INNER JOIN carreras on asignaturas.carrera = carreras.id_carrera WHERE carreras.nombre = 'FOBA'"
         foba = QtSql.QSqlQuery(self.db.database('asignaturas'))
@@ -171,23 +186,83 @@ class Asignaturas(QtGui.QWidget):
         estado = self.ejecuto(q)
         print("Cantidad de elementos " + str(estado.size()))
         '''Proceso para presentar todas las materias FOBA disponibles para cursar'''
+        "Agrego todas las materias a la lista"
+        l = []
+        while foba.next():
+            l.append(foba.record())
+
         if estado.size() < 8:
-            l = []
-            vuelta = 0
-            "Agrego todas las materias"
-            while foba.next():
-                l.append(foba.record())
+            print("Estado tiene menos de 8 elementos")
+
             while estado.next():
                 for i in l:
                     if i.value(0) == estado.value(1):
-                        self.ControloNotas()
                         l.remove(i)
         else:
-            l = "FOBA Completo"
+            total_aprobadas = 0
+            print("Estado tiene 8 elementos")
+            while estado.next():
+                print(estado.value(1))
+                for i in l:
+                    print("Value Foba " + str(i.value(0)))
+                    print("Value Calif " + str(estado.value(1)))
+                    if i.value(0) == estado.value(1):
+
+                        if self.ControloNotas(estado.record()) is True:
+                            total_aprobadas = total_aprobadas + 1
+
+            if total_aprobadas == 8:
+                print("Aprobo las 8 materias FOBA")
+                l = True
+            else:
+                l = "No tiene materias disponibles para la inscripción"
         return l
+
 
     def Chequea_Aprobado(self, f, e):
         pass
+
+    def ControloNotas(self, e):
+        print("Cuatri1 " + str(e.value(2)))
+        print("Cuatri2 " + str(e.value(3)))
+        print("Recup " + str(e.value(4)))
+        n1 = 0
+        n2 = 0
+        n3 = 0
+        n4 = 0
+        if isinstance(e.value(2), QtCore.QPyNullVariant):
+            print("None N1")
+            n1 = 0
+        else:
+            n1 = e.value(2)
+        if isinstance(e.value(3), QtCore.QPyNullVariant):
+            print("None N2")
+            n2 = 0
+        else: n2 = e.value(3)
+        if isinstance(e.value(4), QtCore.QPyNullVariant):
+            print("None N3")
+            n3 = 0
+        else:
+            n3 = e.value(4)
+        if isinstance(e.value(9), QtCore.QPyNullVariant):
+            n4 = 0
+        else:
+            n4 = e.value(9)
+        if n4 >= 4:
+            print("Nota en Asignatura " + str(e.value(1))+ "es mayor a 4 " + str(e.value(9)))
+            return True
+        elif (n1 + n2 / 2) >= 4:
+
+            return True
+        elif (n1 + n3 / 2) >= 4:
+
+            return True
+        elif (n2 + n3 / 2) >= 4:
+
+            return True
+        else:
+            print("Nota en Asignatura " + str(e.value(1))+ "no es mayor a 4 " + str(e.value(9)))
+            return False
 
     def ObtengoMaterias(self, c):
         sql = "SELECT asignaturas.*, carreras.nombre as c FROM asignaturas INNER JOIN carreras on asignaturas.carrera = carreras.id_carrera WHERE carreras.nombre = :carrera"
@@ -241,6 +316,19 @@ class Asignaturas(QtGui.QWidget):
             print(self.db.database('asignaturas').lastError())
 #        return estado
 
+    def anotoProfTec(self):
+        print("entro a AnotoProfTec")
+        '''Obtengo las materias disponibles para inscribir al alumno'''
+        '''Obtengo carrera del alumno'''
+        sql = "SELECT carreras.id_carrera from alumnos " \
+        "INNER JOIN carreras on alumnos.Carrera = carreras.nombre " \
+        "WHERE DNI = :dni"
+        q = QtSql.QSqlQuery(self.db.database('asignaturas'))
+        q.prepare(sql)
+        q.bindValue(":dni", self.dni)
+        carrera = self.ejecuto(q)
+        while carrera.next():
+            print(carrera.value(0))
 
     def Conecto_a_DB(self):
         try:
@@ -248,9 +336,8 @@ class Asignaturas(QtGui.QWidget):
         except:
             conn = Connection()
             conn.SetUsuario(self.usr)
-
-        self.db = conn.CreateConnection('asignaturas')
-        if self.db.database('asignaturas').isOpen():
-            print("Conexión exitosa a Asignaturas")
+            self.db = conn.CreateConnection('asignaturas')
+            if self.db.database('asignaturas').isOpen():
+                print("Conexión exitosa a Asignaturas")
 
 
