@@ -3,6 +3,7 @@ import sys
 
 from PyQt4 import QtCore, QtGui, uic, QtSql
 from conn import *
+from utilidades import *
 
 class Asignaturas(QtGui.QWidget):
     '''La clase Asignaturas llevara adelante todas las operaciones referidas a inscripcion a Materias, y sus derivados'''
@@ -25,9 +26,10 @@ class Asignaturas(QtGui.QWidget):
             ctrl = 1
             layFoba = self.ListoFOBA(ctrl)
             print(type(layFoba))
-            print("Zaraza " + layFoba)
+            print("Zaraza " + str(layFoba))
             if layFoba is True:
-                self.anotoProfTec()
+                layCarrera = self.anotoProfTec()
+                self.lista.append(layCarrera)
             elif layFoba is False:
                 print("No tienes materias disponibles para la inscripción")
             else:
@@ -82,6 +84,8 @@ class Asignaturas(QtGui.QWidget):
 
 
     def ListoFOBA(self, control=0):
+        '''Lista todas las posibilidades de presentación de materias FOBA''' \
+        '''Devuelve un QGroupBox'''
         print(control)
         q = self.MateriasFoba(control)
         print(type(q))
@@ -99,36 +103,46 @@ class Asignaturas(QtGui.QWidget):
             print("paso por aca")
         return gl
 
+########################################################################
+
     def ListoCursos(self):
+        '''Crea un GroupBox con todas las cursos disponibles''' \
+        '''Devuelve un GroupBox'''
         q = self.CursosExtraprogramaticos()
         gl = self.CreoGrid(q, "Cursos Extraprogramáticos")
         gl.setObjectName("GCursos")
         return gl
 
+#########################################################################
+
     def CreoGridLista(self, q, titulo):
+        '''Crea un GridLayout. Recibe un List y devuelve un GroupBox'''
         lay = QtGui.QGridLayout()
         lay.setObjectName(titulo)
         f = 0
         c = 0
         gb = QtGui.QGroupBox(titulo)
         for i in q:
-            if c > 4:
+            if c == 4:
                 c = 0
                 f = f + 1
                 '''Creo el CheckBox y lo agrego al Layout'''
             ckb = QtGui.QCheckBox(i.value(1), gb)
             ckb.setObjectName(str(i.value(0)))
-            print(ckb.objectName())
+
             lay.addWidget(ckb, f, c)
             c = c + 1
             '''seteo el layout al grid'''
 #        gb = QtGui.QGroupBox(titulo)
-        print("Llego acá")
+
         gb.setLayout(lay)
-        print("Llego acá tmb")
+
         return gb
 
+#############################################################################
+
     def CreoGrid(self, q, titulo):
+        '''Crea un GridLayout. Recibe un QtSql.SqlQuery devuelve un GroupBox'''
         lay = QtGui.QGridLayout()
         lay.setObjectName(titulo)
         f = 0
@@ -141,7 +155,7 @@ class Asignaturas(QtGui.QWidget):
                 '''Creo el CheckBox y lo agrego al Layout'''
             ckb = QtGui.QCheckBox(q.value(1), gb)
             ckb.setObjectName(str(q.value(0)))
-            print(ckb.objectName())
+
             lay.addWidget(ckb, f, c)
             c = c + 1
             '''seteo el layout al grid'''
@@ -149,9 +163,12 @@ class Asignaturas(QtGui.QWidget):
         gb.setLayout(lay)
         return gb
 
+##############################################################################
+
     def anotar(self):
+        '''Ejecuta la consulta de inserción de materias para el alumno'''
         self.control = self.control + 1
-        print("control " + str(self.control))
+
         self.materias = []
         '''Obtengo largo de la lista'''
         for i in self.lista:
@@ -169,78 +186,70 @@ class Asignaturas(QtGui.QWidget):
         print(l)
         self.anotoMaterias(self.dni, l)
 
-    # Proceso toda la información FOBA, devuelvo una Lista con las materias
-    # disponibles de FOBA para anotar al alumno
+#############################################################################
+
     def FOBA(self):
-        print("Entro a FOBA")
+        '''Proceso toda la información FOBA, devuelvo una Lista con las''' \
+        '''materias disponibles de FOBA para anotar al alumno'''
         '''Obtengo el total de materias FOBA'''
-        sql = "SELECT * from asignaturas INNER JOIN carreras on asignaturas.carrera = carreras.id_carrera WHERE carreras.nombre = 'FOBA'"
+
+        sql = "SELECT * from asignaturas INNER JOIN carreras on " \
+        "asignaturas.carrera = carreras.id_carrera WHERE "\
+        "carreras.nombre = 'FOBA'"
+
         foba = QtSql.QSqlQuery(self.db.database('asignaturas'))
         foba.prepare(sql)
         foba = self.ejecuto(foba)
-#        sql = "SELECT asignaturas.*, carreras.nombre as c, calificaciones.alumno as alumno, calificaciones.nota as nota FROM asignaturas INNER JOIN carreras on asignaturas.carrera = carreras.id_carrera INNER JOIN calificaciones on asignaturas.id_asignatura = calificaciones.id_asign WHERE carreras.nombre = :carrera AND alumno = :dni"
+
         sql = "SELECT * from calificaciones WHERE alumno = :dni"
         q = QtSql.QSqlQuery(self.db.database('asignaturas'))
         q.prepare(sql)
         q.bindValue(":dni", int(self.dni))
         estado = self.ejecuto(q)
-        print("Cantidad de elementos " + str(estado.size()))
-        '''Proceso para presentar todas las materias FOBA disponibles para cursar'''
-        "Agrego todas las materias a la lista"
         l = []
         while foba.next():
             l.append(foba.record())
 
         if estado.size() < 8:
-            print("Estado tiene menos de 8 elementos")
-
             while estado.next():
                 for i in l:
                     if i.value(0) == estado.value(1):
                         l.remove(i)
         else:
             total_aprobadas = 0
-            print("Estado tiene 8 elementos")
+
             while estado.next():
                 print(estado.value(1))
                 for i in l:
-                    print("Value Foba " + str(i.value(0)))
-                    print("Value Calif " + str(estado.value(1)))
                     if i.value(0) == estado.value(1):
-
                         if self.ControloNotas(estado.record()) is True:
                             total_aprobadas = total_aprobadas + 1
 
             if total_aprobadas == 8:
-                print("Aprobo las 8 materias FOBA")
                 l = True
             else:
                 l = "No tiene materias disponibles para la inscripción"
         return l
 
-
-    def Chequea_Aprobado(self, f, e):
-        pass
+##############################################################################
 
     def ControloNotas(self, e):
-        print("Cuatri1 " + str(e.value(2)))
-        print("Cuatri2 " + str(e.value(3)))
-        print("Recup " + str(e.value(4)))
+
         n1 = 0
         n2 = 0
         n3 = 0
         n4 = 0
         if isinstance(e.value(2), QtCore.QPyNullVariant):
-            print("None N1")
+
             n1 = 0
         else:
             n1 = e.value(2)
         if isinstance(e.value(3), QtCore.QPyNullVariant):
-            print("None N2")
+
             n2 = 0
         else: n2 = e.value(3)
         if isinstance(e.value(4), QtCore.QPyNullVariant):
-            print("None N3")
+
             n3 = 0
         else:
             n3 = e.value(4)
@@ -249,7 +258,7 @@ class Asignaturas(QtGui.QWidget):
         else:
             n4 = e.value(9)
         if n4 >= 4:
-            print("Nota en Asignatura " + str(e.value(1))+ "es mayor a 4 " + str(e.value(9)))
+
             return True
         elif (n1 + n2 / 2) >= 4:
 
@@ -261,16 +270,27 @@ class Asignaturas(QtGui.QWidget):
 
             return True
         else:
-            print("Nota en Asignatura " + str(e.value(1))+ "no es mayor a 4 " + str(e.value(9)))
+
             return False
 
-    def ObtengoMaterias(self, c):
-        sql = "SELECT asignaturas.*, carreras.nombre as c FROM asignaturas INNER JOIN carreras on asignaturas.carrera = carreras.id_carrera WHERE carreras.nombre = :carrera"
+##############################################################################
+
+    def ObtengoMaterias(self, c, d = 0):
+        sql = "SELECT asignaturas.*, carreras.nombre as c FROM asignaturas " \
+        "INNER JOIN carreras on asignaturas.carrera = carreras.id_carrera " \
+        "WHERE carreras.nombre = :carrera OR carreras.nombre = :carrera2"
         q = QtSql.QSqlQuery(self.db.database('asignaturas'))
         q.prepare(sql)
         q.bindValue(":carrera", c)
+        if d != 0:
+            print("No es distinto de 0")
+            q.bindValue(":carrera2", d)
+        else:
+            q.bindValue(":carrera2", c)
         estado = self.ejecuto(q)
         return estado
+
+##############################################################################
 
     def MateriasFoba(self, control):
         c = 'FOBA'
@@ -283,6 +303,8 @@ class Asignaturas(QtGui.QWidget):
 
         return datos
 
+##############################################################################
+
     def ejecuto(self, q):
             estado = q.exec_()
             pipi = q.executedQuery()
@@ -293,42 +315,60 @@ class Asignaturas(QtGui.QWidget):
                 else:
                     return q
             else:
-#               print(dni)
                 print(pipi)
                 print((self.db.database('asignaturas').lastError()))
 
+##############################################################################
 
     def CursosExtraprogramaticos(self):
         c = 'Cursos Extraprogramáticos'
         datos = self.ObtengoMaterias(c)
         return datos
 
+##############################################################################
+
     def anotoMaterias(self, dni, materias):
         '''Preparo la sentencia para inscribir al alumno'''
-        sql = "INSERT INTO calificaciones (id_asign, alumno) VALUES " + materias
+        sql = "INSERT INTO calificaciones (id_asign, alumno) " \
+        "VALUES " + materias
         print(sql)
         q = QtSql.QSqlQuery(self.db.database('asignaturas'))
         q.prepare(sql)
-#        q.bindValue(":dni", dni)
+        self.close()
         try:
             q.exec_()
         except:
             print(self.db.database('asignaturas').lastError())
-#        return estado
+
+##############################################################################
 
     def anotoProfTec(self):
-        print("entro a AnotoProfTec")
         '''Obtengo las materias disponibles para inscribir al alumno'''
+
+        print("entro a AnotoProfTec")
+
         '''Obtengo carrera del alumno'''
-        sql = "SELECT carreras.id_carrera from alumnos " \
-        "INNER JOIN carreras on alumnos.Carrera = carreras.nombre " \
+
+        sql = "SELECT carreras.nombre from carreras " \
+        "INNER JOIN alumnos on alumnos.Carrera = carreras.nombre " \
         "WHERE DNI = :dni"
+
         q = QtSql.QSqlQuery(self.db.database('asignaturas'))
         q.prepare(sql)
         q.bindValue(":dni", self.dni)
         carrera = self.ejecuto(q)
         while carrera.next():
-            print(carrera.value(0))
+            carre = carrera.value(0)
+        mtr = self.ObtengoMaterias(carre, 'AMBAS')
+        self.util = Utilidades()
+        mat = self.util.Convierto_a_Lista(mtr)
+        materias = self.Limpio_Lista(mat)
+        gl = self.CreoGridLista(materias,carre)
+        gl.setObjectName('G' + carre)
+        return gl
+
+
+##############################################################################
 
     def Conecto_a_DB(self):
         try:
@@ -340,4 +380,44 @@ class Asignaturas(QtGui.QWidget):
             if self.db.database('asignaturas').isOpen():
                 print("Conexión exitosa a Asignaturas")
 
+##############################################################################
 
+    def Limpio_Lista(self, l):
+        '''Recibe una lista, busca aprobadas, correlativas, devuelve las''' \
+        '''disponibles para que se anote el alumno'''
+
+        '''Busco las materias anotadas de la carrera en las que el alumno''' \
+        '''ya se encuentra anotado'''
+
+        sql = "SELECT * FROM calificaciones WHERE alumno = :dni"
+        q = QtSql.QSqlQuery(self.db.database('asignaturas'))
+        q.prepare(sql)
+        q.bindValue(":dni", self.dni)
+        calificaciones = self.ejecuto(q)
+        calif = self.util.Convierto_a_Lista(calificaciones)
+
+        if isinstance(l, list):
+            for c in calif:
+                print("Calificaciones " + str(c.value(1)))
+                for i in l:
+                    print ("Asignatura " + str(i.value(0)) + " " + str(i.value(1)))
+                    if i.value(0) == c.value(1):
+                            l.remove(i)
+                    else:
+                        corre = self.Correlativas(i.value(3), calif)
+                        if corre is False:
+                            l.remove(i)
+
+
+        else:
+            print("No me diste una Lista")
+        return l
+
+##############################################################################
+
+    def Correlativas(self, co, ca):
+        print(co)
+        if isinstance(co, QtCore.QPyNullVariant):
+            return True
+        else:
+            return False

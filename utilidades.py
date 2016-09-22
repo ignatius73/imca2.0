@@ -1,5 +1,5 @@
 import sys, re
-from PyQt4 import QtCore, QtGui
+from PyQt4 import QtCore, QtGui, QtSql
 from PyQt4.QtGui import QMessageBox, QWidget
 
 class Utilidades():
@@ -26,3 +26,15 @@ class Utilidades():
         v = QMessageBox.question(w, "Atención", t, QMessageBox.Ok | QMessageBox.Cancel)
         w.show()
         return v
+
+##############################################################################
+
+    def Convierto_a_Lista(self, obj):
+        '''Recibe un QtSqlQuery y devuelve una Lista'''
+        if isinstance(obj, QtSql.QSqlQuery):
+            l = []
+            while obj.next():
+                l.append(obj.record())
+            return l
+        else:
+            return "No me diste un Query"
